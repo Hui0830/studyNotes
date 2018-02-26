@@ -51,7 +51,7 @@ package.json
 > 3. 对于react开发者，重要的是区分哪些属于data，哪些属于render，要更新界面，要做的就是更新data；
 > 4. react实践的也是"响应式编程"的思想。
 > 
- <a id="Virtual DOM"></a>
+ <a id="VirtualDOM"></a>
 - **3、Virtual DOM**
 1. 每次render函数被调用，都要把整个组件重新渲染一遍会浪费，而react对此利用Virtual DOM，让每次渲染都只从新渲染最少的DOM;
 2. DOM树：HTML是结构化文本，而DOM是结构化文本的抽象表达形式，浏览器在渲染HTML格式网页时，会先将HTML文本解析以构建DOM树，然后根据DOM树渲渲染出用户看到
@@ -165,48 +165,73 @@ function Demo(){
   2. React通过propTypes来规范，因为propTypes已经从React包中分离出来，所以新版React中无法使用`React.PropTypes.*`,需导入`prop-types`
   `npm install prop-type --save`导入`import PropTypes from ('prop-types')`
   3. propTypes验证器
+  
     1. JavaScript基本类型：
-    `PropTypes.array
-    PropTypes.bool
-    PropTypes.func
-    PropTypes.number
-    PropTypes.object
-    PropTypes.string`
     
- > 
+    ```
+    PropTypes.array
+    
+    PropTypes.bool
+    
+    PropTypes.func
+    
+    PropTypes.number
+    
+    PropTypes.object
+    
+    PropTypes.string
+    
     2. 可以被渲染为子节点的对象，包括数值、字符串ReactElement（指的是JSX中的闭合标签）或数组：
-    `PropTypes.node`
+    
+    PropTypes.node
+    
     3. ReactElement
-    `PropTypes.element`
+    
+    PropTypes.element
+    
     4. 指定类的实例
-    `PropTypes.instanceOf(Message)`
+    
+    PropTypes.instanceOf(Message)
+    
     5. 只接受指定的值：
-    ` PropTypes.oneOf(['News','Photos'])`
+    
+    PropTypes.oneOf(['News','Photos'])
+    
     6. 多个对象类型中的一个：
-    `PropTypes.oneOfType([
+    
+    PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
       PropTypes.instanceOf(Message)
-    ])`
+    ])
+    
     7. 指定类型组成的数组：
-    `PropTypes.arrayOf(PropTypes.number)`
+    
+    PropTypes.arrayOf(PropTypes.number)
+    
     8. 指定类型的属性构成的对象：
-    `PropTypes.objectOf(PropTypes.number)`
+    
+    PropTypes.objectOf(PropTypes.number)
+    
     9. 符合指定格式的对象：
-    `PropTypes.shape({
+    
+    PropTypes.shape({
       color: PropTypes.string,
       fontSize: PropTypes.number
-    })`
+    })
+
     10. 在任意类型上加上isRequired使其不为空：
-    `PropTypes.func.isRequired`
+    
+    PropTypes.func.isRequired 
     
     eg:
-    ```
+
     Child.propTypes = {
       initValue: PropTypes.number,
       caption: PropTypes.string
       
     }
+    
     ```
 - **React的state**
 1. state代表组件的内部状态，由于React组件不能修改传入的prop，所以需要使用state记录自身数据变化；
@@ -289,6 +314,12 @@ function Demo(){
 <a id="ReactElement与组件实例"></a>
 #### 2. ReactElement、组件与组件实例
 - ReactElement
+1. JSX允许在JavaScript中写嵌套的闭合标签，那么JSX中的闭合标签是什么呢？打印出来：
+```
+console.log(<h1>hello world</h1>);
+console.log(<App />);
+```
+[aaaaa](!http://img.blog.csdn.net/20161010160433614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 ***********************************************************************************************
 <a id="组件生命周期"></a>
 #### 3. 组件生命周期
