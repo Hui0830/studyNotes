@@ -6,10 +6,11 @@
   - [JSX](#JSX)
 - #### 二、[React详解](#React详解)
   - [React组件数据](#React组件数据)
-  - [组件生命周期](#组件生命周期)
-  - [React高级组件](#React高级组件)
-  - [React组件的性能优化](#React组件的性能优化)
   - [React的两个对象：ReactElement与组件实例](#ReactElement与组件实例)
+  - [组件生命周期](#组件生命周期)
+  - [React组件的性能优化](#React组件的性能优化)
+  - [React高级组件](#React高级组件)
+
   - [](#)
   ***************************************************
  <a id="React简介"></a>
@@ -163,18 +164,15 @@ function Demo(){
   1. prop是组件的对外接口，所以一个组件该声明自己的接口规范，规范组件支持哪些prop，每个prop该是什么样的格式；
   2. React通过propTypes来规范，因为propTypes已经从React包中分离出来，所以新版React中无法使用`React.PropTypes.*`,需导入`prop-types`
   `npm install prop-type --save`导入`import PropTypes from ('prop-types')`
-  `
   3. propTypes验证器
     1. JavaScript基本类型：
-    
-    ```
-    PropTypes.array
+    `PropTypes.array
     PropTypes.bool
     PropTypes.func
     PropTypes.number
     PropTypes.object
-    PropTypes.string
-    ```
+    PropTypes.string`
+    
  > 
     2. 可以被渲染为子节点的对象，包括数值、字符串ReactElement（指的是JSX中的闭合标签）或数组：
     `PropTypes.node`
@@ -287,7 +285,20 @@ function Demo(){
       color:PropTypes.string.isRequired
     }
     ```
-    
+***********************************************************************************************
+<a id="ReactElement与组件实例"></a>
+#### 2. ReactElement、组件与组件实例
+- ReactElement
+***********************************************************************************************
+<a id="组件生命周期"></a>
+#### 3. 组件生命周期
+***********************************************************************************************
+<a id="React组件的性能优化"></a>
+#### 4. React组件的性能优化
+***********************************************************************************************
+<a id="React高级组件"></a>
+#### 5. React高级组件
+***********************************************************************************************
     
     
   
