@@ -331,7 +331,7 @@ function Demo(){
 console.log(<h1>hello world</h1>);
 console.log(<App />);
 ```
-![ReactElement运行截图](http://img.blog.csdn.net/20161010160433614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![ReactElement运行截图](https://github.com/Hui0830/studyNotes/blob/master/Images/ReactElement1.JPG)
 - 运行程序后，在浏览器控制台可以看到打印了两个$$typeof为Symbol（react.element）的对象，这个对象就叫做ReactElement。
 > **注意：** 只有在React中使用JSX，闭合标签才会被编译为ReactElement，如果在其他框架或库中使用JSX，闭合标签会根据编译器不同而被编译为不同的对象。
 
