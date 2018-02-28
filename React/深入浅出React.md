@@ -337,10 +337,11 @@ console.log(<App />);
 
 
 - **2.2、ReactElement是什么？**
-1. ReactElement是一个不可变的普通对象，他描述了一个组件实例或一个DOM节点；
-2. ReactElement只包含组件的类型（比如h1、或者App）、属性以及子元素等信息；
-3. ReactElement不是组件实例，所以不能在ReactElement中调用React组件的任何方法；
-4. ReactElement只是告诉你想在屏幕上显示什么。
+1. ReactElement一种轻量级的、无状态的、不可改变的、DOM元素的虚拟表述（Virtual DOM）;
+2. ReactElement是一个不可变的普通对象，他描述了一个组件实例或一个DOM节点；
+3. ReactElement只包含组件的类型（比如h1、或者App）、属性以及子元素等信息；
+4. ReactElement不是组件实例，所以不能在ReactElement中调用React组件的任何方法；
+5. ReactElement只是告诉你想在屏幕上显示什么。
 - ReactElement的两种类型：
   - 从打印出来的截图，可以发现，两个ReactElement对象的type属性有所不同，这正代表着ReactElement的两种类型
     1. 当ReactElement的type属性是一个字符串，它表示一个DOM节点，它的prop属性就对应了DOM的属性`console.log(<h1>hello world</h1>)`就是这种；
@@ -355,8 +356,21 @@ console.log(<App />);
 > 1. **对一个组件来说，props就是输入，ReactElement就是输出；**
 > 2. 此特性不仅清晰的表述了组件把数据渲染成视图的过程，而且方便了性能优化；
 > 3. B比如，对一个庞大的DOM树，如果每次都要重新渲染，那么势必会极大的消耗性能；但如果在渲染之前，先判断一下输入的props是否改变，然后在决定是否渲         染，这将会有效的避免不必要的渲染，进而提升性能。
-  
-  
+  - 使用
+  伪代码形式阐述整个virtual DOM的流程：
+  ```
+  //1. 构建virtual DOM树结构
+  var tree = new Element('div',{props: {id: 'test'},'Hello tree'});
+  //2. 将Virtual DOM树插入到真正的DOM中
+  var root = render(tree,document.getElementById('container'));
+  //3. 变化后构建新的Virtual DOM树
+  var newTree = new Element('div',{props: {id: 'test2'},'Hello tree2'});
+  //4. 通过Diff算法计算出两棵树的不同
+  var patches = diff(tree,newTree);
+  //5. 在DOM元素中使用变更，这里引入patch方法，用来将计算出不不同作用到DOM上
+  patch(root,patches);
+  ```
+  - **Virtual DOM的核心在于用JavaScript对象来表述DOM结构，使用Diff算法来取得两个对象之间的差异，并用最少的DOM操作完成更新。**
 <a id="组件实例"></a>
 - **2.4、组件实例**
 **1. 组件实例简介：**
